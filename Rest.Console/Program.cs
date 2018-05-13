@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using OfficeClip.OpenSource.Integration.Rest.Library.Sms;
 using OfficeClip.OpenSource.Integration.Rest.Library;
+using OfficeClip.OpenSource.Integration.Rest.Library.MailChimp;
 
 namespace Rest.Console
 {
@@ -10,8 +11,16 @@ namespace Rest.Console
         public static void Main(string[] args)
         {
             //SendMessage().Wait();
-            GetMessageInfo().Wait();
+            //GetMessageInfo().Wait();
+            GetMailChimpLists().Wait();
+        }
 
+        public static async Task<ListsInfo> GetMailChimpLists()
+        {
+            var credential = new RestCredentialInfo();
+            credential.ReadFromConfiguration();
+            var lists = await Lists.GetLists(credential);
+            return lists;
         }
 
         public static async Task<TwilioMessage> GetMessageInfo()
