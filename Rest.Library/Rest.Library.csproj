@@ -58,7 +58,9 @@
     <Compile Include="MailChimp\ListInfo.cs" />
     <Compile Include="MailChimp\Lists.cs" />
     <Compile Include="MailChimp\ListsInfo.cs" />
-    <Compile Include="MailChimp\Subscriber.cs" />
+    <Compile Include="MailChimp\Member.cs" />
+    <Compile Include="MailChimp\MemberInfo.cs" />
+    <Compile Include="MailChimp\MergeFieldInfo.cs" />
     <Compile Include="Rest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestCredentialInfo.cs" />

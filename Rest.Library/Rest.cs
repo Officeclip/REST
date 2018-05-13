@@ -38,23 +38,5 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
         {
             return await client.GetAsync(path);
         }
-
-        //public async Task<Tuple<List<T>, HttpResponseMessage>> GetAllUsersAsync(
-        //                                                    string queryString = "")
-        //{
-        //    HttpResponseMessage response = await client.GetAsync(queryString);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var values = await response.Content.ReadAsAsync<IEnumerable<T>>();
-        //        var valueList = values.ToList();
-        //        return new Tuple<List<T>, HttpResponseMessage>(valueList, response);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
-        //    }
-        //    return new Tuple<List<T>, HttpResponseMessage>(null, response);
-        //}
-
     }
 }

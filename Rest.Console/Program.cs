@@ -2,6 +2,7 @@
 using OfficeClip.OpenSource.Integration.Rest.Library.Sms;
 using OfficeClip.OpenSource.Integration.Rest.Library;
 using OfficeClip.OpenSource.Integration.Rest.Library.MailChimp;
+using System;
 
 namespace Rest.Console
 {
@@ -12,7 +13,51 @@ namespace Rest.Console
         {
             //SendMessage().Wait();
             //GetMessageInfo().Wait();
-            GetMailChimpLists().Wait();
+            //GetMailChimpLists().Wait();
+            AddChimpMember().Wait();
+        }
+
+        public static MemberInfo PopulateMember
+        {
+            get
+            {
+                return
+                    new MemberInfo()
+                    {
+                        EmailAddress = "skd123us@yahoo.com",
+                        Status = "subscribed",
+                        Merge_Fields = new MergeFieldInfo()
+                        {
+                            FName = "Samuel",
+                            LName = "Dass",
+                            Edition = "Professional",
+                            Version = "Installed",
+                            Created = DateTime.Now
+                        }
+                    };
+            }
+        }
+
+        public static string GetListId(string listName)
+        {
+            var lists = GetMailChimpLists().Result;
+            foreach (ListInfo listInfo in lists.Lists)
+            {
+                if (listInfo.Name == listName)
+                {
+                    return listInfo.Id;
+                }
+            }
+            return null;
+        }
+
+        public static async Task<string> AddChimpMember()
+        {
+            var credential = new RestCredentialInfo();
+            credential.ReadFromConfiguration();
+            var listId = GetListId("Site Registration");
+            var response = await Member.PostAsync(credential, listId, PopulateMember);
+            return response;
         }
 
         public static async Task<ListsInfo> GetMailChimpLists()
@@ -35,7 +80,7 @@ namespace Rest.Console
         {
             var twilioMessage = new TwilioMessage();
             twilioMessage.ReadFromConfiguration();
-            twilioMessage.Message = "All in the game";           
+            twilioMessage.Message = "All in the game";
             var smsInfo = new RestCredentialInfo();
             smsInfo.ReadFromConfiguration();
             message = await Twilio.SendMessage(smsInfo, twilioMessage);
