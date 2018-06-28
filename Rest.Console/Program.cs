@@ -24,15 +24,18 @@ namespace Rest.Console
                 return
                     new MemberInfo()
                     {
-                        EmailAddress = "skd123us@yahoo.com",
+                        EmailAddress = "xxx.yyy@zzz.com",
                         Status = "subscribed",
                         Merge_Fields = new MergeFieldInfo()
                         {
-                            FName = "Samuel",
-                            LName = "Dass",
-                            Edition = "Professional",
-                            Version = "Installed",
-                            Created = DateTime.Now
+                            FName = "Kim",
+                            LName = "Jung",
+                            Edition = "Enterprise",
+                            Version = "Hosted",
+                            Created = DateTime.Now,
+                            Note = "Test The Accruals in Time Off",
+                            Status = "0",
+                            Id = "33"
                         }
                     };
             }
