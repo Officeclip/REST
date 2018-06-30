@@ -24,18 +24,18 @@ namespace Rest.Console
                 return
                     new MemberInfo()
                     {
-                        EmailAddress = "xxx.yyy@zzz.com",
+                        EmailAddress = "skd@officeclip.com",
                         Status = "subscribed",
                         Merge_Fields = new MergeFieldInfo()
                         {
-                            FName = "Kim",
-                            LName = "Jung",
+                            FName = "SK",
+                            LName = "Dutta",
                             Edition = "Enterprise",
-                            Version = "Hosted",
+                            Version = "Installed",
                             Created = DateTime.Now,
-                            Note = "Test The Accruals in Time Off",
+                            Note = "Testing mailchimp",
                             Status = "0",
-                            Id = "33"
+                            Id = "55"
                         }
                     };
             }

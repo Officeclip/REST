@@ -15,11 +15,11 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.Sms
             string messageId)
         {
             var restCredential = new Rest(
-                restCredentialInfo.AccountId,
-                restCredentialInfo.SecretKey);
+                restCredentialInfo.TwilioAccountId,
+                restCredentialInfo.TwilioSecretKey);
             var url = string.Format(
                                     SmsGetUrl,
-                                    restCredentialInfo.AccountId,
+                                    restCredentialInfo.TwilioAccountId,
                                     messageId);
             var response = await restCredential.GetAsync(
                                                     url);
@@ -85,11 +85,11 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.Sms
             TwilioMessage twilioMessage)
         {
             var restCredential = new Rest(
-                restCredentialInfo.AccountId,
-                restCredentialInfo.SecretKey);
+                restCredentialInfo.TwilioAccountId,
+                restCredentialInfo.TwilioSecretKey);
             var url = string.Format(
                                     SmsPostUrl,
-                                    restCredentialInfo.AccountId);
+                                    restCredentialInfo.TwilioAccountId);
             var content = new StringContent(twilioMessage.ToMessageString());
             var response = await restCredential.PostAsync(
                                                url,

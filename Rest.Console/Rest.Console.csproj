@@ -55,7 +55,7 @@
     <None Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dynamic.config" />
+    <None Include="rest.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
