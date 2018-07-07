@@ -8,7 +8,8 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
         public const string GetUrl = "https://{0}.api.mailchimp.com/3.0/lists";
 
         public static async Task<ListsInfo> GetLists(
-            RestCredentialInfo restCredentialInfo)
+            RestCredentialInfo restCredentialInfo,
+            bool isUnblock = false)
         {
             var restCredential = new Rest(
                 "dummy",
@@ -16,9 +17,14 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
             var url = string.Format(
                                     GetUrl,
                                     restCredentialInfo.MailChimpLocation);
-            var response = await restCredential.GetAsync(
+            var response = (isUnblock)
+                            ? await restCredential.GetAsync(
+                                                    url, true).ConfigureAwait(false)
+                            : await restCredential.GetAsync(
                                                     url);
-            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseContent = (isUnblock)
+                                  ? await response.Content.ReadAsStringAsync().ConfigureAwait(false)
+                                  : await response.Content.ReadAsStringAsync();
             var fetch = JsonConvert.DeserializeObject<ListsInfo>(responseContent);
             return fetch;
         }

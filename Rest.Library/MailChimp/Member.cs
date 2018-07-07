@@ -16,7 +16,8 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
         public static async Task<string> PostAsync(
             RestCredentialInfo restCredentialInfo, 
             string listId, 
-            MemberInfo memberInfo)
+            MemberInfo memberInfo,
+            bool isUnblock = false)
         {
             var restCredential = new Rest(
                 "dummy",
@@ -29,8 +30,12 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
                                         JsonConvert.SerializeObject(memberInfo), 
                                         Encoding.UTF8, 
                                         "application/json");
-            var result = await restCredential.PostAsync(url, stringContent);
-            string resultContent = await result.Content.ReadAsStringAsync();
+            var result = (isUnblock)
+                         ? await restCredential.PostAsync(url, stringContent, true).ConfigureAwait(false)
+                         : await restCredential.PostAsync(url, stringContent);
+            string resultContent = (isUnblock)
+                                   ? await result.Content.ReadAsStringAsync().ConfigureAwait(false)
+                                   : await result.Content.ReadAsStringAsync();
             return resultContent;
         }
 

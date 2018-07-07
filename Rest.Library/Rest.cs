@@ -25,18 +25,21 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
             {
                 client.DefaultRequestHeaders.Add("User-Agent", userAgent);
             }
-            //client.DefaultRequestHeaders.Add("User-Agent", "twilio-csharp/5.6.2 (.NET 4+)");
         }
 
-        public async Task<HttpResponseMessage> PostAsync(string url, StringContent content)
+        public async Task<HttpResponseMessage> PostAsync(string url, StringContent content, bool isUnblock = false)
         {            
             content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-            return await client.PostAsync(url, content);
+            return (isUnblock)
+                    ? await client.PostAsync(url, content).ConfigureAwait(false)
+                    : await client.PostAsync(url, content);
         }
 
-        public async Task<HttpResponseMessage> GetAsync(string path)
+        public async Task<HttpResponseMessage> GetAsync(string path, bool isUnblock = false)
         {
-            return await client.GetAsync(path);
+            return (isUnblock) 
+                    ? await client.GetAsync(path).ConfigureAwait(false)
+                    : await client.GetAsync(path);
         }
     }
 }
