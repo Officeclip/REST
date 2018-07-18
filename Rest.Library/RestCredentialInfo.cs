@@ -5,15 +5,15 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
 {
     public class RestCredentialInfo
     {
-        public string TwilioAccountId { get; set; }
-        public string TwilioSecretKey { get; set; }
+        public string AccountId { get; set; }
+        public string SecretKey { get; set; }
         public string MailChimpLocation { get; set; }
         public string MailChimpApiKey { get; set; }
 
         public void ReadFromConfiguration(string filePath = "")
         {
-            TwilioAccountId = GetValueFromConfig("twilio.AccountId", filePath);
-            TwilioSecretKey = GetValueFromConfig("twilio.SecretKey", filePath);
+            AccountId = GetValueFromConfig("AccountId", filePath);
+            SecretKey = GetValueFromConfig("SecretKey", filePath);
             MailChimpLocation = GetValueFromConfig("mailchimp.Location", filePath);
             MailChimpApiKey = GetValueFromConfig("mailchimp.ApiKey", filePath);
         }
