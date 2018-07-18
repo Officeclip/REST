@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Xml;
 
 namespace OfficeClip.OpenSource.Integration.Rest.Library
 {
@@ -9,12 +10,28 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
         public string MailChimpLocation { get; set; }
         public string MailChimpApiKey { get; set; }
 
-        public void ReadFromConfiguration()
+        public void ReadFromConfiguration(string filePath = "")
         {
-            TwilioAccountId = ConfigurationManager.AppSettings["twilio.AccountId"];
-            TwilioSecretKey = ConfigurationManager.AppSettings["twilio.SecretKey"];
-            MailChimpLocation = ConfigurationManager.AppSettings["mailchimp.Location"];
-            MailChimpApiKey = ConfigurationManager.AppSettings["mailchimp.ApiKey"];
+            TwilioAccountId = GetValueFromConfig("twilio.AccountId", filePath);
+            TwilioSecretKey = GetValueFromConfig("twilio.SecretKey", filePath);
+            MailChimpLocation = GetValueFromConfig("mailchimp.Location", filePath);
+            MailChimpApiKey = GetValueFromConfig("mailchimp.ApiKey", filePath);
+        }
+
+        private string GetValueFromConfig(string key, string filePath = "")
+        {
+            if (filePath == "")
+            {
+                return ConfigurationManager.AppSettings[key];
+            }
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(filePath);
+
+            XmlNode selectedNode =
+                xmlDocument.SelectSingleNode(
+                                             $"/appSettings/add[@key='{key}']");
+
+            return selectedNode.Attributes["value"].Value;
         }
     }
 }
