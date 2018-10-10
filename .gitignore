@@ -18,3 +18,4 @@
 /.vs/REST/v15/*.suo
 /.vs/REST/v15/Server/sqlite3
 /Rest.Console/*.user
+/packages
