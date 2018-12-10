@@ -16,7 +16,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
         public string EmailAddress { get; set; } = string.Empty;
 
         [JsonProperty("email_type")]
-        public string Email_Type { get; set; } = string.Empty;
+        public string Email_Type { get; set; } = "html";
 
         [JsonProperty("status")]
         public string Status { get; set; } = string.Empty;

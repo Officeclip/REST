@@ -24,7 +24,7 @@ namespace Rest.Console
                 return
                     new MemberInfo()
                     {
-                        EmailAddress = "skd@officeclip.com",
+                        EmailAddress = "sales@everestconsulting.us",
                         Status = "subscribed",
                         Merge_Fields = new MergeFieldInfo()
                         {
