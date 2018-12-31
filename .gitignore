@@ -19,3 +19,8 @@
 /.vs/REST/v15/Server/sqlite3
 /Rest.Console/*.user
 /packages
+/Rest.Console/obj/Release
+/Rest.Library/bin/Release
+/Rest.Library/obj/Release
+/Rest.Test/obj/Release
+/Twilio.Library.Test/obj/Release
