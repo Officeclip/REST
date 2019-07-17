@@ -6,12 +6,12 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rest.Library")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("OfficeClip.OpenSource.Rest.Library")]
+[assembly: AssemblyDescription("REST interface with various third party libraries")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("OfficeClip")]
-[assembly: AssemblyProduct("Rest.Library")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("OfficeClip LLC")]
+[assembly: AssemblyProduct("OfficeClip.OpenSource.Rest.Library")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,7 +33,7 @@ using System.Security;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.1.0")]
-[assembly: AssemblyFileVersion("0.5.1.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
 
 [assembly: AllowPartiallyTrustedCallersAttribute()]
