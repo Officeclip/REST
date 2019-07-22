@@ -9,6 +9,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
         public string TwilioSecretKey { get; set; }
         public string MailChimpLocation { get; set; }
         public string MailChimpApiKey { get; set; }
+        public string SlackWebHookUrl { get; set; }
 
         public void ReadFromConfiguration(string filePath = "")
         {
@@ -16,6 +17,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
             TwilioSecretKey = GetValueFromConfig("twilio.SecretKey", filePath);
             MailChimpLocation = GetValueFromConfig("mailchimp.Location", filePath);
             MailChimpApiKey = GetValueFromConfig("mailchimp.ApiKey", filePath);
+            SlackWebHookUrl = GetValueFromConfig("slack.WebHookUrl", filePath);
         }
 
         private string GetValueFromConfig(string key, string filePath = "")

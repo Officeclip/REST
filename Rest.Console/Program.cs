@@ -3,6 +3,8 @@ using OfficeClip.OpenSource.Integration.Rest.Library.Sms;
 using OfficeClip.OpenSource.Integration.Rest.Library;
 using OfficeClip.OpenSource.Integration.Rest.Library.MailChimp;
 using System;
+using OfficeClip.OpenSource.Integration.Rest.Library.Slack;
+using System.Net.Http;
 
 namespace Rest.Console
 {
@@ -14,7 +16,16 @@ namespace Rest.Console
             //SendMessage().Wait();
             //GetMessageInfo().Wait();
             //GetMailChimpLists().Wait();
-            AddChimpMember().Wait();
+            //AddChimpMember().Wait();
+            SendSlackMessage("This is a test").Wait();
+        }
+
+        public static async Task<HttpResponseMessage> SendSlackMessage(string message)
+        {
+            var credential = new RestCredentialInfo();
+            credential.ReadFromConfiguration();
+            var response = await SlackClient.SendMessageAsync(credential, message);
+            return response;
         }
 
         public static MemberInfo PopulateMember

@@ -64,6 +64,7 @@
     <Compile Include="Rest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestCredentialInfo.cs" />
+    <Compile Include="Slack\SlackClient.cs" />
     <Compile Include="Sms\Twilio.cs" />
     <Compile Include="Sms\TwilioException.cs" />
     <Compile Include="Sms\TwilioMessage.cs" />
