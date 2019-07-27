@@ -20,6 +20,8 @@ namespace Rest.Console
             SendSlackMessage("This is a test").Wait();
         }
 
+
+
         public static async Task<HttpResponseMessage> SendSlackMessage(string message)
         {
             var credential = new RestCredentialInfo();

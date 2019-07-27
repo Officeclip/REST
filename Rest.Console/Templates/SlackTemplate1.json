@@ -1,0 +1,22 @@
+[
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": "Contact: Email Address *Modified* to b.ramusagar@gmail.com (from...)\n<www.google.com|Day, Peter>"
+    }
+  },
+  {
+    "type": "section",
+    "fields": [
+      {
+        "type": "mrkdwn",
+        "text": "*By:*\n<www.google.com|Kulkarni, Nagesh>"
+      },
+      {
+        "type": "mrkdwn",
+        "text": "*When:*\n24 Jan 2019"
+      }
+    ]
+  }
+]

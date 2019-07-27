@@ -59,6 +59,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Templates\SlackTemplate1.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rest.Library\Rest.Library.csproj">
