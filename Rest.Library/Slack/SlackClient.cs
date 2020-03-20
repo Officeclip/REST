@@ -13,12 +13,14 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.Slack
         public static async Task<HttpResponseMessage> SendMessageAsync(
                                                     RestCredentialInfo restCredentialInfo,
                                                     string message,
+                                                    string blocks,
                                                     string channel = null, 
                                                     string username = null)
         {
             var payload = new
             {
                 text = message,
+                blocks,
                 channel,
                 username,
             };

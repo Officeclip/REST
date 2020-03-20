@@ -17,16 +17,76 @@ namespace Rest.Console
             //GetMessageInfo().Wait();
             //GetMailChimpLists().Wait();
             //AddChimpMember().Wait();
-            SendSlackMessage("This is a test").Wait();
+            //SendSlackMessage("This is a test").Wait();
+            //SendSlackMessage("This is a test", SlackFormattedMessage).Wait();
+            SendSlackMessage("Timesheet Approved by Rao, Narsimha", SlackFormattedMessageOneLiner).Wait();
         }
 
+        private static string SlackFormattedMessageOneLiner
+        {
+            get
+            {
+                return @"
+                [
+		                {
+			                ""type"": ""section"",
+			                ""text"": {
+				                ""type"": ""mrkdwn"",
+				                ""text"": ""*Rao, Narsimha*  _Approved_ a <fakelink.ToMoreTimes.com|Timesheet Mar 09, 2020 (Sudhakar Gundu)> to _Gundu, Sudhakar_""
+			                }
+		                },
+		                {
+			                ""type"": ""divider""
+		                },
+		                {
+			                ""type"": ""section"",
+			                ""text"": {
+				                ""type"": ""mrkdwn"",
+				                ""text"": ""*<fakelink.ToMoreTimes.com|Change history notification settings>*""
+			                }
+		                }
+	                ]";
+            }
+        }
 
+        private static string SlackFormattedMessage
+        {
+            get
+            {
+                return @"
+                [
+		                {
+			                ""type"": ""section"",
+			                ""fields"": [
+				                {
+					                ""type"": ""mrkdwn"",
+					                ""text"": "":hamburger: Notes: *Added*\n       <google.com|Testing 10.8.3>\n""
+				                },
+				                {
+					                ""type"": ""mrkdwn"",
+					                ""text"": ""by <google.com|Nagesh, Kulkarni>\n 10 Sep at 10:44 PM""
+				                }
+			                ]
+		                },
+		                {
+			                ""type"": ""section"",
+			                ""text"": {
+				                ""type"": ""mrkdwn"",
+				                ""text"": ""for Contact: <google.com|Nagesh, Kulkarni>""
+			                }
+		                },
+		                {
+			                ""type"": ""divider""
+		                }
+	                ]";
+            }
+        }
 
-        public static async Task<HttpResponseMessage> SendSlackMessage(string message)
+        public static async Task<HttpResponseMessage> SendSlackMessage(string message, string blocks)
         {
             var credential = new RestCredentialInfo();
             credential.ReadFromConfiguration();
-            var response = await SlackClient.SendMessageAsync(credential, message);
+            var response = await SlackClient.SendMessageAsync(credential, message, blocks);
             return response;
         }
 
