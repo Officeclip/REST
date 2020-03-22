@@ -10,6 +10,15 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.Slack
 {
     public class SlackClient
     {
+        /// <summary>
+        /// Sending a slack webhook message. See: https://api.slack.com/reference/messaging/payload
+        /// </summary>
+        /// <param name="restCredentialInfo"></param>
+        /// <param name="message"></param>
+        /// <param name="blocks"></param>
+        /// <param name="channel"></param>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static async Task<HttpResponseMessage> SendMessageAsync(
                                                     RestCredentialInfo restCredentialInfo,
                                                     string message,
