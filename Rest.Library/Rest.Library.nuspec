@@ -6,13 +6,13 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/Officeclip/REST/blob/master/LICENSE</licenseUrl>
+    <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/Officeclip/REST</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Rest Library for various providers</description>
-    <releaseNotes>Initial Release</releaseNotes>
+    <releaseNotes>Added Slack webhook rest</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>Rest Twilio MainChimp</tags>
+    <tags>Rest Twilio MailChimp Slack</tags>
     <dependencies>
       <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.6" />
       <dependency id="Newtonsoft.Json" version="11.0.2" />
