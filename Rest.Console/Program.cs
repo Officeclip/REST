@@ -15,11 +15,11 @@ namespace Rest.Console
         {
             //SendMessage().Wait();
             //GetMessageInfo().Wait();
-            //GetMailChimpLists().Wait();
+            var list = GetMailChimpLists().Result;
             //AddChimpMember().Wait();
             //SendSlackMessage("This is a test").Wait();
             //SendSlackMessage("This is a test", SlackFormattedMessage).Wait();
-            SendSlackMessage("Timesheet Approved by Rao, Narsimha", SlackFormattedMessageOneLiner).Wait();
+            //SendSlackMessage("Timesheet Approved by Rao, Narsimha", SlackFormattedMessageOneLiner).Wait();
         }
 
         private static string SlackFormattedMessageOneLiner

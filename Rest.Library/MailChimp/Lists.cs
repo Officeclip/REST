@@ -17,16 +17,11 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.MailChimp
             var url = string.Format(
                                     GetUrl,
                                     restCredentialInfo.MailChimpLocation);
-            var response = (isUnblock)
-                            ? await restCredential.GetAsync(
-                                                    url, true).ConfigureAwait(false)
-                            : await restCredential.GetAsync(
-                                                    url);
-            var responseContent = (isUnblock)
-                                  ? await response.Content.ReadAsStringAsync().ConfigureAwait(false)
-                                  : await response.Content.ReadAsStringAsync();
-            var fetch = JsonConvert.DeserializeObject<ListsInfo>(responseContent);
-            return fetch;
+            var response1 = await restCredential.GetAsync(
+                                                    url, isUnblock);
+            var responseContent1 = await response1.Content.ReadAsStringAsync();
+            var fetch1 = JsonConvert.DeserializeObject<ListsInfo>(responseContent1);
+            return fetch1;
         }
     }
 }
