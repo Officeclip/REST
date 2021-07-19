@@ -29,3 +29,4 @@
 /webapp/obj/Debug
 /webapp/Web.config
 /webapp/bin
+/Rest.Webapp/Local.config

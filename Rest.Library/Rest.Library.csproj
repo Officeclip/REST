@@ -68,6 +68,13 @@
     <Compile Include="Sms\Twilio.cs" />
     <Compile Include="Sms\TwilioException.cs" />
     <Compile Include="Sms\TwilioMessage.cs" />
+    <Compile Include="Twilio\RequestValidationService.cs" />
+    <Compile Include="Twilio\Sms\Rest.cs" />
+    <Compile Include="Twilio\Sms\Exception.cs" />
+    <Compile Include="Twilio\Sms\ReturnMessage.cs" />
+    <Compile Include="Twilio\Voice\Exception.cs" />
+    <Compile Include="Twilio\Voice\Rest.cs" />
+    <Compile Include="Twilio\Voice\ReturnMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
