@@ -12,17 +12,18 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library.Twilio.Voice
         public const string VoicePostUrl = "https://api.twilio.com/2010-04-01/Accounts/{0}/Calls.json";
 
         public static async Task<ReturnMessage> PostCommand(
-                                RestCredentialInfo restCredentialInfo,
+                                string twilioAccountId,
+                                string twilioSecretKey,
                                 string toNumber,
                                 string fromNumber,
                                 string twiml)
         {
             var restCredential = new Library.Rest(
-                                        restCredentialInfo.TwilioAccountId,
-                                        restCredentialInfo.TwilioSecretKey);
+                                        twilioAccountId,
+                                        twilioSecretKey);
             var url = string.Format(
                                     VoicePostUrl,
-                                    restCredentialInfo.TwilioAccountId);
+                                    twilioAccountId);
 
             var parameters = new
             {

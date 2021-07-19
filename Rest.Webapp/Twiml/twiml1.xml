@@ -1,0 +1,5 @@
+﻿<Response>
+  <Say voice="woman">The quick brown fox jumps over the lazy dog.</Say>
+  <Dial>{0}</Dial>
+  <Hangup></Hangup>
+</Response>

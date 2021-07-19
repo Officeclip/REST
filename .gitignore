@@ -30,3 +30,5 @@
 /webapp/Web.config
 /webapp/bin
 /Rest.Webapp/Local.config
+/Rest.Webapp/bin
+/Rest.Webapp/obj/Debug
