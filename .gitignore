@@ -26,3 +26,10 @@
 /Twilio.Library.Test/obj/Release
 /.vs/REST/v16
 .vs
+/webapp/obj/Debug
+/webapp/Web.config
+/webapp/bin
+/Rest.Webapp/Local.config
+/Rest.Webapp/bin
+/Rest.Webapp/obj/Debug
+/Rest.Webapp/obj
