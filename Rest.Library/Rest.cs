@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -21,14 +20,14 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                                                                             "Basic",
                                                                             Convert.ToBase64String(byteArray));
-            if (userAgent!= null)
+            if (userAgent != null)
             {
                 client.DefaultRequestHeaders.Add("User-Agent", userAgent);
             }
         }
 
         public async Task<HttpResponseMessage> PostAsync(string url, StringContent content, bool isUnblock = false)
-        {            
+        {
             content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
             return (isUnblock)
                     ? await client.PostAsync(url, content).ConfigureAwait(false)
@@ -37,7 +36,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
 
         public async Task<HttpResponseMessage> GetAsync(string path, bool isUnblock = false)
         {
-            return (isUnblock) 
+            return (isUnblock)
                     ? await client.GetAsync(path).ConfigureAwait(false)
                     : await client.GetAsync(path);
         }

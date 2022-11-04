@@ -10,6 +10,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
         public string MailChimpLocation { get; set; }
         public string MailChimpApiKey { get; set; }
         public string SlackWebHookUrl { get; set; }
+        public string IpInfoKey { get; set; }
 
         public void ReadFromConfiguration(string filePath = "")
         {
@@ -18,6 +19,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Library
             MailChimpLocation = GetValueFromConfig("mailchimp.Location", filePath);
             MailChimpApiKey = GetValueFromConfig("mailchimp.ApiKey", filePath);
             SlackWebHookUrl = GetValueFromConfig("slack.WebHookUrl", filePath);
+            IpInfoKey = GetValueFromConfig("ipinfo.key", filePath);
         }
 
         private string GetValueFromConfig(string key, string filePath = "")

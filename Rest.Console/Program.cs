@@ -1,12 +1,13 @@
-﻿using System.Threading.Tasks;
-using OfficeClip.OpenSource.Integration.Rest.Library.Sms;
-using OfficeClip.OpenSource.Integration.Rest.Library;
+﻿using OfficeClip.OpenSource.Integration.Rest.Library;
+using OfficeClip.OpenSource.Integration.Rest.Library.IpInfo;
 using OfficeClip.OpenSource.Integration.Rest.Library.MailChimp;
-using System;
 using OfficeClip.OpenSource.Integration.Rest.Library.Slack;
+using OfficeClip.OpenSource.Integration.Rest.Library.Sms;
+using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
-namespace Rest.Console
+namespace OfficeClip.OpenSource.Integration.Rest.Console
 {
     public class Program
     {
@@ -15,12 +16,44 @@ namespace Rest.Console
         {
             //SendMessage().Wait();
             //GetMessageInfo().Wait();
-            var list = GetMailChimpLists().Result;
+            //var list = GetMailChimpLists().Result;
+            string json = PrintIpInfoCountry().Result;
+            System.Console.WriteLine(json);
             //AddChimpMember().Wait();
             //SendSlackMessage("This is a test").Wait();
             //SendSlackMessage("This is a test", SlackFormattedMessage).Wait();
             //SendSlackMessage("Timesheet Approved by Rao, Narsimha", SlackFormattedMessageOneLiner).Wait();
+            System.Console.ReadKey();
         }
+
+        private static async Task<string> PrintIpInfoCountry()
+        {
+            var credential = new RestCredentialInfo();
+            credential.ReadFromConfiguration();
+
+            var country = IpInfoClient.GetCountryAsync(credential, "8.8.8.8");
+
+            //var restCredential = new Library.Rest("", credential.IpInfoKey);
+            //var url = "https://ipinfo.io/8.8.8.8";
+            //var response1 = await restCredential.GetAsync(
+            //                                        url, true);
+            //var responseContent1 = await response1.Content.ReadAsStringAsync();
+            return country.Result;
+        }
+
+        //private void GetIpValue(out string ipAdd)
+        //{
+        //    ipAdd = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+        //    if (string.IsNullOrEmpty(ipAdd))
+        //    {
+        //        ipAdd = Request.ServerVariables["REMOTE_ADDR"];
+        //    }
+        //    else
+        //    {
+        //        lblIPAddress.Text = ipAdd;
+        //    }
+        //}
 
         private static string SlackFormattedMessageOneLiner
         {
