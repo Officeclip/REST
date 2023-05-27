@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Rest Library for various providers</description>
     <releaseNotes>Added Slack webhook rest</releaseNotes>
-    <copyright>Copyright 2019</copyright>
+    <copyright>Copyright 2023</copyright>
     <tags>Rest Twilio MailChimp Slack</tags>
     <dependencies>
       <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.6" />

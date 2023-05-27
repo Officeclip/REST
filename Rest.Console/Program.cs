@@ -31,7 +31,7 @@ namespace OfficeClip.OpenSource.Integration.Rest.Console
             var credential = new RestCredentialInfo();
             credential.ReadFromConfiguration();
 
-            var country = IpInfoClient.GetCountryAsync(credential, "8.8.8.8");
+            var country = IpInfoClient.GetCountryAsync(credential, "185.229.226.83");
 
             //var restCredential = new Library.Rest("", credential.IpInfoKey);
             //var url = "https://ipinfo.io/8.8.8.8";
